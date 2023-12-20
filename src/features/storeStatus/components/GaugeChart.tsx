@@ -5,6 +5,7 @@ import { getThresholdValue } from "../utils";
 
 export default function GaugeChart({
   title,
+  subtitle,
   value,
   units,
   colorThresholds,
@@ -12,6 +13,7 @@ export default function GaugeChart({
   minWidth,
 }: {
   title: string;
+  subtitle?: string;
   value: number;
   units: string;
   colorThresholds?: ColorThresholds;
@@ -46,7 +48,7 @@ export default function GaugeChart({
       layout={{
         autosize: true,
         margin: { t: 50, b: 50 },
-        title,
+        title: subtitle ? `${title} <br /> (${subtitle})` : title,
         titlefont: {
           size: 16,
           family: theme.typography.fontFamily,

@@ -66,6 +66,7 @@ export default function IndoorAirQuality({ assetId }: { assetId: string }) {
             colorThresholds={MOCK_THRESHOLDS}
             minHeight={gaugeChartHeight}
             minWidth={gaugeChartWidth}
+            subtitle="sub"
           />
         </Grid>
         <Grid item>
