@@ -16,7 +16,7 @@ export const getIndoorHumidityThresholds = (theme: Theme): ColorThresholds => [
 ];
 
 export const getIndoorCO2Thresholds = (theme: Theme): ColorThresholds => [
-  { value: theme.palette.success.main, min: -Infinity, max: 1000 },
-  { value: theme.palette.warning.main, min: 1000, max: 1200 },
-  { value: theme.palette.error.main, min: 1200, max: Infinity },
+  { value: theme.palette.success.main, min: -Infinity, max: 1500 },
+  { value: theme.palette.warning.main, min: 1500, max: 4000 },
+  { value: theme.palette.error.main, min: 4000, max: Infinity },
 ];
