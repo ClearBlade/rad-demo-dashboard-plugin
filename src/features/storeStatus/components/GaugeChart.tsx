@@ -2,6 +2,7 @@ import { Box, Typography, useTheme } from "@material-ui/core";
 import Plot from "react-plotly.js";
 import { ColorThresholds } from "../types";
 import { getThresholdValue } from "../utils";
+import { Axis, Data } from "plotly.js";
 
 export default function GaugeChart({
   title,
@@ -10,6 +11,7 @@ export default function GaugeChart({
   colorThresholds,
   minHeight,
   minWidth,
+  gaugeAxis,
 }: {
   title: string;
   value: number;
@@ -17,21 +19,23 @@ export default function GaugeChart({
   colorThresholds?: ColorThresholds;
   minHeight?: number;
   minWidth?: number;
+  gaugeAxis?: Partial<Axis>;
 }) {
   const theme = useTheme();
   const barColor = colorThresholds
     ? getThresholdValue({ value, thresholds: colorThresholds }) ??
       theme.palette.text.primary
     : theme.palette.text.primary;
-  const data = [
+  const data: Data[] = [
     {
       domain: { x: [0, 1], y: [0, 1] },
       value,
       number: { suffix: units },
-      type: "indicator" as const,
-      mode: "gauge+number" as const,
+      type: "indicator",
+      mode: "gauge+number",
       gauge: {
         bar: { color: barColor },
+        axis: gaugeAxis,
       },
     },
   ];

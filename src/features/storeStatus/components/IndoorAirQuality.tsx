@@ -95,6 +95,11 @@ export default function IndoorAirQuality({ assetId }: { assetId: string }) {
             title="CO2"
             units=" PPM"
             value={storeStatusQuery.data.custom_data.co2}
+            gaugeAxis={{
+              range: [0, 6000],
+              tickvals: [0, 2000, 4000, 6000],
+              tickangle: 0,
+            }}
             colorThresholds={getIndoorCO2Thresholds(theme)}
             minHeight={gaugeChartHeight}
             minWidth={gaugeChartWidth}
